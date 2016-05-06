@@ -2,26 +2,23 @@
 library(shiny)
 
 # Define UI for application that draws a histogram
-shinyUI(pageWithSidebar(
+shinyUI(fluidPage(
   
 
-    headerPanel("Pick Predictors"),
+    titlePanel("Pick Predictors"),
     
 
-    sidebarPanel(
-        checkboxGroupInput('predictors', 'Select Predictors',
-                           names(mtcars[,-1])),
-                           
-        sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
-    ),
+    sidebarLayout(
+        sidebarPanel(
+            checkboxGroupInput('predictors', 'Select Predictors:',
+                               names(mtcars[,-1])),
+            submitButton("Build Linear Model")
+
+        ),
     
-    # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
+        mainPanel(
+            h4("Your selection: ", textOutput("text1", inline=TRUE)),
+            tableOutput("coef_table")
+        )
     )
-  )
-)
+))

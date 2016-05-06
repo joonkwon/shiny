@@ -1,14 +1,18 @@
 library(shiny)
 shinyUI(pageWithSidebar(
-    headerPanel("Illustrating Inputs"),
+    headerPanel("Hello Shiny"),
     sidebarPanel(
-        numericInput("id1", "Numeric Input Labeled Id1", 0, min=0, max=10, step=1),
-        checkboxGroupInput("id2", "Checkbox inputs", 
-                           c("checkbox1", "checkbox 2", "checkbox 3")),
-        dateInput("date1", "Date:"),
-        h3('Sidebar Text')
+        textInput(inputId = "text1", label="Input Text 1"),
+        textInput(inputId = "text2", label="Input Text 2"),
+        actionButton("goButton", "Go!")
     ),
     mainPanel(
-        h3('Main Panel Text')
+        p('Output text1'),
+        textOutput('text1'),
+        p('Output text2'),
+        textOutput('text2'),
+        p("Output Text3"),
+        textOutput('text3')
+       
     )
 ))
