@@ -26,6 +26,11 @@ shinyServer(function(input, output) {
             pf(fs[1],fs[2],fs[3], lower.tail = FALSE)
         }
     })
+    output$rsquared = renderText({
+        if (length(input$predictors) != 0 ) {
+            summary(lmModel())$r.squared
+        }
+    })
     output$plot = renderPlot({
         if (length(input$predictors) != 0 ) {
             par(mfrow=c(2,2))
