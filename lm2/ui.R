@@ -10,6 +10,7 @@ shinyUI(fluidPage(
 
     sidebarLayout(
         sidebarPanel(
+            width=3,
             checkboxGroupInput('predictors', 'Select Predictors:',
                                names(mtcars[,-1])),
             submitButton("Build Linear Model")
@@ -17,6 +18,7 @@ shinyUI(fluidPage(
         ),
     
         mainPanel(
+            width=9,
             h2("Linear Regression Model:"), 
             verbatimTextOutput("linearModel"),
 
