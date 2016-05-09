@@ -1,0 +1,9 @@
+name: lm-mtcars
+account: flymetothemoon
+server: shinyapps.io
+appId: 100987
+bundleId: 446139
+url: https://flymetothemoon.shinyapps.io/lm-mtcars/
+when: 1462823736.60427
+asMultiple: FALSE
+asStatic: FALSE
