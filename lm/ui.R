@@ -5,7 +5,7 @@ library(shiny)
 shinyUI(fluidPage(
   
 
-    titlePanel("Pick Predictors"),
+    titlePanel("Build Linear Regression Model for MPG"),
     
 
     sidebarLayout(
@@ -17,8 +17,17 @@ shinyUI(fluidPage(
         ),
     
         mainPanel(
-            h4("Your selection: ", textOutput("text1", inline=TRUE)),
-            tableOutput("coef_table")
+            h2("Linear Regression Model:"), 
+            verbatimTextOutput("linearModel"),
+
+            br(),
+            h3("Coefficients:"),
+            tableOutput("coef_table"),
+            h3("P-Value of F-statistic: "), 
+            verbatimTextOutput("pValue"),
+            h3("Model Plots:"),
+            plotOutput("plot")
+               
         )
     )
 ))
